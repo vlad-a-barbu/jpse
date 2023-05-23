@@ -1,2 +1,2 @@
-# jpse
-small job post search engine
+# Small job post search engine
+
