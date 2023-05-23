@@ -16,7 +16,7 @@ namespace JobPostSearch.Tests
         }
 
         [Fact]
-        public void AssertThat_SameQuery_DoesNotYieldSameResults()
+        public void AssertThat_SameQueryTwice_DoesNotYieldSameResults()
         {
             var engine = new LinkedinJobSearchEngine();
             const string query = "software developer";
@@ -25,6 +25,18 @@ namespace JobPostSearch.Tests
             var second = engine.Search(query);
 
             Assert.NotEqual(first.Jobs.First().EntityUrn, second.Jobs.First().EntityUrn);
+        }
+
+        [Fact]
+        public void AssertThat_Query_DoesNotYieldSameJobPosts()
+        {
+            var engine = new LinkedinJobSearchEngine();
+            const string query = "software developer";
+
+            var result = engine.Search(query);
+            var jobTitles = result.Jobs.Select(x => x.JobTitle?.Trim() ?? string.Empty).ToList();
+
+            Assert.Equal(jobTitles.Count, jobTitles.Distinct().Count());
         }
     }
 }
