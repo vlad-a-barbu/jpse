@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPostSearch.Engine", "Job
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPostSearch.Tests", "..\JobPostSearch.Tests\JobPostSearch.Tests.csproj", "{BE8520A6-90E5-4068-898D-E503A01E5B3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPostSearch.Demo", "..\JobPostSearch.Demo\JobPostSearch.Demo.csproj", "{E883926B-B7D7-4A64-98E7-1B9A2B4C3A75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BE8520A6-90E5-4068-898D-E503A01E5B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE8520A6-90E5-4068-898D-E503A01E5B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE8520A6-90E5-4068-898D-E503A01E5B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E883926B-B7D7-4A64-98E7-1B9A2B4C3A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E883926B-B7D7-4A64-98E7-1B9A2B4C3A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E883926B-B7D7-4A64-98E7-1B9A2B4C3A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E883926B-B7D7-4A64-98E7-1B9A2B4C3A75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

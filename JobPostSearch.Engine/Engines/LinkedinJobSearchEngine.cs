@@ -72,6 +72,58 @@ namespace JobPostSearch.Engine.Engines
             return result;
         }
 
+        public IReadOnlyList<LinkedinJobSearchResult> ExhaustiveSearch(string query)
+        {
+            LinkedinJobSearchResult SearchInternal()
+            {
+                var result = Search(JobSearchGuestPath, new Dictionary<string, string>
+                {
+                    ["keywords"] = query,
+                    ["start"] = _offset.ToString()
+                });
+
+                IncreaseOffset(result);
+
+                return result;
+            }
+
+            var results = new List<LinkedinJobSearchResult>();
+
+            while (true)
+            {
+                try { results.Add(SearchInternal()); }
+                catch (Exception) { break; }
+            }
+
+            return results;
+        }
+
+        public async Task<IReadOnlyList<LinkedinJobSearchResult>> ExhaustiveSearchAsync(string query)
+        {
+            async Task<LinkedinJobSearchResult> SearchInternalAsync()
+            {
+                var result = await SearchAsync(JobSearchGuestPath, new Dictionary<string, string>
+                {
+                    ["keywords"] = query,
+                    ["start"] = _offset.ToString()
+                });
+
+                IncreaseOffset(result);
+
+                return result;
+            }
+
+            var results = new List<LinkedinJobSearchResult>();
+
+            while (true)
+            {
+                try { results.Add(await SearchInternalAsync()); }
+                catch (Exception) { break; }
+            }
+
+            return results;
+        }
+
         private void IncreaseOffset(LinkedinJobSearchResult result) { _offset += result.ResultsCount; }
     }
 }

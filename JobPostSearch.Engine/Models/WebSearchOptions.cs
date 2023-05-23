@@ -7,13 +7,13 @@
         public int RetryRequestTotalSeconds { get; }
         public int RetryRequestSleepSeconds { get; }
 
-        public WebSearchOptions(int totalSeconds, int sleepSeconds)
+        public WebSearchOptions(int retryTotalSeconds, int retrySleepSeconds)
         {
-            if (totalSeconds < 1) throw new ArgumentOutOfRangeException(nameof(totalSeconds));
-            if (sleepSeconds < 1) throw new ArgumentOutOfRangeException(nameof(sleepSeconds));
+            if (retryTotalSeconds < 1) throw new ArgumentOutOfRangeException(nameof(retryTotalSeconds));
+            if (retrySleepSeconds < 1) throw new ArgumentOutOfRangeException(nameof(retrySleepSeconds));
 
-            RetryRequestTotalSeconds = totalSeconds;
-            RetryRequestSleepSeconds = sleepSeconds;
+            RetryRequestTotalSeconds = retryTotalSeconds;
+            RetryRequestSleepSeconds = retrySleepSeconds;
         }
     }
 }
